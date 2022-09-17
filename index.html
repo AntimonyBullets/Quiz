@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <p>Solve the following Quiz</p>
+    </header>
+    <div id="main">
+        <p id="question">Q: How many electrons are there in a H<sup>+</sup> ion?</p>
+        <div id="vikalp">
+            <div class="options"><span>A:</span><button class="btn" id="first" onclick="check(), score()">0</button></div>
+            <div class="options"><span>B:</span><button class="btn" id="second" onclick="check()">1</button></div>
+            <div class="options"><span>C:</span><button class="btn" id="third" onclick="check()">2</button></div>
+            <div class="options"><span>D:</span><button class="btn" id="fourth" onclick="check()">4</button></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
