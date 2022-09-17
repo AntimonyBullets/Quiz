@@ -121,5 +121,6 @@ header p {
     header p {
         background-color: unset;
         color: black;
+        text-shadow: 0.5px 0.5px 1px white;
     }
 }

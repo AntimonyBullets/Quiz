@@ -14,17 +14,20 @@ function check4() {
     setTimeout(() => {
         if (x == 5) {
             main.innerHTML = `<p class="after-line" id ="win">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by refreshing the page.</p>
-            <a href="index.html" id = "play">Play again</a>`;
+            <p class="after-line">You can retry by clicking the button below.</p>
+            <a href="index.html" id = "play">Play again</a>
+            <audio autoplay>
+            <source src="congratulations.mp3" type="audio/mp3">
+            </audio>`;
         }
-        else if(x > 2){
+        else if (x > 2) {
             main.innerHTML = `<p class="after-line" id ="average">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by refreshing the page.</p>
+            <p class="after-line">You can retry by clicking the button below.</p>
             <a href="index.html" id = "play">Play again</a>`;
         }
-        else{
+        else {
             main.innerHTML = `<p class="after-line" id ="lose">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by refreshing the page.</p>
+            <p class="after-line">You can retry by clicking the button below.</p>
             <a href="index.html" id = "play">Play again</a>`;
         }
     }, 1000);
