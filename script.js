@@ -47,7 +47,7 @@ function check3() {
     setTimeout(() => {
         main.innerHTML = `<p id="question">Q: Which king was the best among the following?</p>
         <div id="vikalp">
-            <div class="options"><span>A:</span><button class="btn" id="first" onclick="check4(), ">Aurangzeb</button></div>
+            <div class="options"><span>A:</span><button class="btn" id="first" onclick="check4() ">Aurangzeb</button></div>
             <div class="options"><span>B:</span><button class="btn" id="second" onclick="check4()">Alauddin Khilji</button></div>
             <div class="options"><span>C:</span><button class="btn" id="third" onclick="check4(), score()">Chhatrapati Shivaji Maharaj</button></div>
             <div class="options"><span>D:</span><button class="btn" id="fourth" onclick="check4()">Babur</button></div>
