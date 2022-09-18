@@ -1,39 +1,77 @@
+let main = document.getElementById('main');
 let x = 0;
-function check4() {
-    let main = document.getElementById('main');
-    let wrong3 = document.getElementById('first');
-    let wrong2 = document.getElementById('second');
-    let right = document.getElementById('third');
-    let wrong1 = document.getElementById('fourth');
-    setTimeout(() => {
-        wrong1.style.backgroundColor = 'red';
-        right.style.backgroundColor = 'green';
-        wrong2.style.backgroundColor = 'red';
-        wrong3.style.backgroundColor = 'red';
-    }, 50);
-    setTimeout(() => {
-        if (x == 5) {
-            main.innerHTML = `<p class="after-line" id ="win">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by clicking the button below.</p>
-            <a href="index.html" id = "play">Play again</a>
-            <audio autoplay>
-            <source src="congratulations.mp3" type="audio/mp3">
-            </audio>`;
-        }
-        else if (x > 2) {
-            main.innerHTML = `<p class="after-line" id ="average">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by clicking the button below.</p>
-            <a href="index.html" id = "play">Play again</a>`;
-        }
-        else {
-            main.innerHTML = `<p class="after-line" id ="lose">You have scored ${x}/5.</p>
-            <p class="after-line">You can retry by clicking the button below.</p>
-            <a href="index.html" id = "play">Play again</a>`;
-        }
-    }, 1000);
+let y = 60;
+let timer = document.getElementById('timer');
+function time() {
+    if (y != 0) {
+        y = y - 1;
+        timer.innerText = `${y}`;
+    }
 }
+let start = document.getElementById('continue');
+let instructions = document.getElementById('instructions');
+let body = document.getElementById('after-header');
+start.addEventListener('click', () => {
+    instructions.style.display = 'none';
+    body.style.display = 'block';
+    intervalID = setInterval(time, 1000);
+    timeoutID = setTimeout(() => {
+            main.innerHTML = `<p id="lost">You lost on time.</p>
+         <a href="index.html" id = "play">Play again</a>
+         <audio autoplay>
+            <source src="fail.mp3" type="audio/mp3">
+             </audio>
+          `;
+          clearInterval(intervalID);
+          clearTimeout(fourthID);
+          clearTimeout(thirdID);
+          clearTimeout(secondID);
+          clearTimeout(firstID);
+          clearTimeout(zerothID);
+        }, 60000);
+    })
+    function check4() {
+        let wrong3 = document.getElementById('first');
+        let wrong2 = document.getElementById('second');
+        let right = document.getElementById('third');
+        let wrong1 = document.getElementById('fourth');
+        setTimeout(() => {
+            wrong1.style.backgroundColor = 'red';
+            right.style.backgroundColor = 'green';
+            wrong2.style.backgroundColor = 'red';
+            wrong3.style.backgroundColor = 'red';
+        }, 50);
+        fourthID = setTimeout(() => {
+            clearInterval(intervalID);
+            clearTimeout(timeoutID);
+            if (x == 5) {
+                main.innerHTML = `<p class="after-line" id ="win">You have scored ${x}/5.</p>
+                <p class="after-line">You can retry by clicking the button below.</p>
+                <a href="index.html" id = "play">Play again</a>
+                <audio autoplay>
+                <source src="congratulations.mp3" type="audio/mp3">
+                </audio>`;
+            }
+            else if (x > 2) {
+                main.innerHTML = `<p class="after-line" id ="average">You have scored ${x}/5.</p>
+                <p class="after-line">You can retry by clicking the button below.</p>
+                <a href="index.html" id = "play">Play again</a>
+                <audio autoplay>
+            <source src="fail.mp3" type="audio/mp3">
+             </audio>
+                `;
+            }
+            else {
+                main.innerHTML = `<p class="after-line" id ="lose">You have scored ${x}/5.</p>
+                <p class="after-line">You can retry by clicking the button below.</p>
+                <a href="index.html" id = "play">Play again</a>
+                <audio autoplay>
+            <source src="fail.mp3" type="audio/mp3">
+             </audio>`;
+            }
+        }, 1000);
+    }
 function check3() {
-    let main = document.getElementById('main');
     let right = document.getElementById('first');
     let wrong2 = document.getElementById('second');
     let wrong3 = document.getElementById('third');
@@ -44,7 +82,7 @@ function check3() {
         wrong2.style.backgroundColor = 'red';
         wrong3.style.backgroundColor = 'red';
     }, 50);
-    setTimeout(() => {
+    thirdID = setTimeout(() => {
         main.innerHTML = `<p id="question">Q: Which king was the best among the following?</p>
         <div id="vikalp">
             <div class="options"><span>A:</span><button class="btn" id="first" onclick="check4() ">Aurangzeb</button></div>
@@ -55,7 +93,6 @@ function check3() {
     }, 1000);
 }
 function check2() {
-    let main = document.getElementById('main');
     let wrong1 = document.getElementById('first');
     let wrong2 = document.getElementById('second');
     let wrong3 = document.getElementById('third');
@@ -66,7 +103,7 @@ function check2() {
         wrong2.style.backgroundColor = 'red';
         wrong3.style.backgroundColor = 'red';
     }, 50);
-    setTimeout(() => {
+    secondID = setTimeout(() => {
         main.innerHTML = `<p id="question">Q: Amongst which of these particles nuclear force can be seen?</p>
         <div id="vikalp">
             <div class="options"><span>A:</span><button class="btn" id="first" onclick="check3(), score()">proton-proton</button></div>
@@ -77,7 +114,6 @@ function check2() {
     }, 1000);
 }
 function check1() {
-    let main = document.getElementById('main');
     let wrong1 = document.getElementById('first');
     let right = document.getElementById('second');
     let wrong2 = document.getElementById('third');
@@ -88,7 +124,7 @@ function check1() {
         wrong2.style.backgroundColor = 'red';
         wrong3.style.backgroundColor = 'red';
     }, 50);
-    setTimeout(() => {
+    firstID = setTimeout(() => {
         main.innerHTML = `<p id="question">Q: Imaginary number is denoted by:-</p>
         <div id="vikalp">
             <div class="options"><span>A:</span><button class="btn" id="first" onclick="check2()">x</button></div>
@@ -99,8 +135,6 @@ function check1() {
     }, 1000);
 }
 function check() {
-    let x = 0;
-    let main = document.getElementById('main');
     let right = document.getElementById('first');
     let wrong1 = document.getElementById('second');
     let wrong2 = document.getElementById('third');
@@ -111,7 +145,7 @@ function check() {
         wrong2.style.backgroundColor = 'red';
         wrong3.style.backgroundColor = 'red';
     }, 50);
-    setTimeout(() => {
+    zerothID = setTimeout(() => {
         main.innerHTML = `<p id="question">Q: Which country amongst these has the largest military?</p>
         <div id="vikalp">
             <div class="options"><span>A:</span><button class="btn" id="first" onclick="check1()">India</button></div>
@@ -128,3 +162,9 @@ function score() {
     }
     console.log(int_score());
 }
+
+
+
+
+
+
