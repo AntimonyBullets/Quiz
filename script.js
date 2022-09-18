@@ -16,61 +16,61 @@ start.addEventListener('click', () => {
     body.style.display = 'block';
     intervalID = setInterval(time, 1000);
     timeoutID = setTimeout(() => {
-            main.innerHTML = `<p id="lost">You lost on time.</p>
+        main.innerHTML = `<p id="lost">You lost on time.</p>
          <a href="index.html" id = "play">Play again</a>
          <audio autoplay>
             <source src="fail.mp3" type="audio/mp3">
              </audio>
           `;
-          clearInterval(intervalID);
-          clearTimeout(fourthID);
-          clearTimeout(thirdID);
-          clearTimeout(secondID);
-          clearTimeout(firstID);
-          clearTimeout(zerothID);
-        }, 60000);
-    })
-    function check4() {
-        let wrong3 = document.getElementById('first');
-        let wrong2 = document.getElementById('second');
-        let right = document.getElementById('third');
-        let wrong1 = document.getElementById('fourth');
-        setTimeout(() => {
-            wrong1.style.backgroundColor = 'red';
-            right.style.backgroundColor = 'green';
-            wrong2.style.backgroundColor = 'red';
-            wrong3.style.backgroundColor = 'red';
-        }, 50);
-        fourthID = setTimeout(() => {
-            clearInterval(intervalID);
-            clearTimeout(timeoutID);
-            if (x == 5) {
-                main.innerHTML = `<p class="after-line" id ="win">You have scored ${x}/5.</p>
+        clearInterval(intervalID);
+        clearTimeout(fourthID);
+        clearTimeout(thirdID);
+        clearTimeout(secondID);
+        clearTimeout(firstID);
+        clearTimeout(zerothID);
+    }, 60000);
+})
+function check4() {
+    let wrong3 = document.getElementById('first');
+    let wrong2 = document.getElementById('second');
+    let right = document.getElementById('third');
+    let wrong1 = document.getElementById('fourth');
+    setTimeout(() => {
+        wrong1.style.backgroundColor = 'red';
+        right.style.backgroundColor = 'green';
+        wrong2.style.backgroundColor = 'red';
+        wrong3.style.backgroundColor = 'red';
+    }, 50);
+    fourthID = setTimeout(() => {
+        clearInterval(intervalID);
+        clearTimeout(timeoutID);
+        if (x == 5) {
+            main.innerHTML = `<p class="after-line" id ="win">You have scored ${x}/5.</p>
                 <p class="after-line">You can retry by clicking the button below.</p>
                 <a href="index.html" id = "play">Play again</a>
                 <audio autoplay>
                 <source src="congratulations.mp3" type="audio/mp3">
                 </audio>`;
-            }
-            else if (x > 2) {
-                main.innerHTML = `<p class="after-line" id ="average">You have scored ${x}/5.</p>
+        }
+        else if (x > 2) {
+            main.innerHTML = `<p class="after-line" id ="average">You have scored ${x}/5.</p>
                 <p class="after-line">You can retry by clicking the button below.</p>
                 <a href="index.html" id = "play">Play again</a>
                 <audio autoplay>
             <source src="fail.mp3" type="audio/mp3">
              </audio>
                 `;
-            }
-            else {
-                main.innerHTML = `<p class="after-line" id ="lose">You have scored ${x}/5.</p>
+        }
+        else {
+            main.innerHTML = `<p class="after-line" id ="lose">You have scored ${x}/5.</p>
                 <p class="after-line">You can retry by clicking the button below.</p>
                 <a href="index.html" id = "play">Play again</a>
                 <audio autoplay>
             <source src="fail.mp3" type="audio/mp3">
              </audio>`;
-            }
-        }, 1000);
-    }
+        }
+    }, 1000);
+}
 function check3() {
     let right = document.getElementById('first');
     let wrong2 = document.getElementById('second');
